@@ -1,0 +1,166 @@
+* {
+    margin: 0;
+    padding: 0;
+    scroll-behavior: smooth;
+}
+
+@font-face {
+    font-family: "edu NSW";
+    src: url(../fonts/Edu\ NSW.ttf);
+}
+
+section {
+    z-index: 0;
+    color: white;
+    background-color: black;
+    width: 100%;
+    min-height: 100vh;
+}
+
+#home {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#home .info {
+    z-index: 5;
+    width: 45%;
+    height: 70%;
+    display: flex;
+    flex-direction: column;
+    padding: 25px 0px;
+}
+
+#nome-titulo {
+    width: 100%;
+    height: max-content;
+    font-family: Edu NSW;
+    font-size: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    animation: open-nome 3s normal;
+}
+
+#nome-titulo::after {
+    content: '';
+    display: block;
+    width: 100%;
+    height: 5px;
+    position: absolute;
+    bottom: -10px;
+    border-radius: 15px;
+    background-color: white;
+    animation: open-nome-efeito 3s normal;
+}
+
+#home .detalhes {
+    width: 45%;
+    height: 350px;
+    padding: 20px;
+    border-top: 5px solid white;
+    border-bottom: 5px solid white;
+    animation: open 3s normal;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#home .detalhes .titulo {
+    font-size: 30px;
+    animation: open-titulo 3s normal;
+}
+
+#home .info .desc {
+    width: 100%;
+    text-align: justify;
+    font-size: 16px;
+    font-family: Edu NSW;
+    animation: open-desc 6s normal;
+    margin-top: 20px;
+}
+
+#home .imgs {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    margin-top: 15px;
+    padding: 8px 0px;
+}
+
+.habil-icone {
+    width: 35px;
+    height: 35px;
+    margin: 5px;
+    border-radius: 5px;
+    animation: open-imgs 6s normal;
+}
+
+#home .detalhes .projetos {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#home .detalhes .capa-projeto {
+    width: 100px;
+    height: 100px;
+    border-radius: 10px;
+    margin: 10px;
+    animation: open-projeto 3s normal;
+}
+
+.projeto-arte {
+    z-index: 2;
+    width: 30%;
+    height: 100%;
+    position: fixed;
+    top: 0px;
+    background-color: transparent;
+}
+
+#projeto-dir {
+    right: 0px;
+}
+
+#img-dir {
+    width: 100%;
+    position: absolute;
+    bottom: 0px;
+    right: 10px;
+    animation: img-dir-open 6s normal;
+}
+
+#img-esq {
+    width: 100%;
+    position: absolute;
+    bottom: 0px;
+    left: 10px;
+    animation: img-esq-open 6s normal;
+}
+
+#projeto-esq {
+    left: 0px;
+}
+
+.links {
+    width: 100%;
+    display: flex;
+    margin: 8px 0px;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.link {
+    font-size: 25px;
+    color: white;
+    text-decoration: none;
+}
