@@ -1,6 +1,8 @@
 window.onload = () => {
     const titulo = document.getElementById("nome-titulo");
     const descricao = document.getElementById("info");
+    const jogos = {LG: "logicgirl.html", LK: "logikingdom.html"};
+
     AjusteItens();
     window.addEventListener("resize", AjusteItens);
 
@@ -15,4 +17,11 @@ window.onload = () => {
             descricao.style.width = "50% !important";
         }
     }
+
+    document.querySelectorAll(".projeto-arte").forEach(p => {
+        p.addEventListener("click", () => {
+            let game = jogos[p.getAttribute("game")];
+            if(game) window.location.href = "/jogos/"+game;
+        })
+    })
 }

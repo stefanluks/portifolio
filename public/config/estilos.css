@@ -37,6 +37,7 @@ section {
     height: max-content;
     font-family: Edu NSW;
     font-size: 80px;
+    text-align: center;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -125,6 +126,7 @@ section {
     position: fixed;
     top: 0px;
     background-color: transparent;
+    cursor: pointer;
 }
 
 #projeto-dir {
@@ -163,4 +165,52 @@ section {
     font-size: 25px;
     color: white;
     text-decoration: none;
+}
+
+.img-jogo-page{
+    position: fixed;
+    bottom: 0px;
+    width: 250px;
+}
+
+.btns-plataforms{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 20px;
+    margin-bottom: 105px;
+}
+
+.btn-download{
+    width: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;    
+    border: 1px solid white;
+    padding: 5px;
+    cursor: pointer;
+    transition: .6s;
+    text-decoration: none;
+    color: white;
+}
+
+.btn-download:hover{
+    background-color: white;
+    color: black;
+    width: 200px;
+}
+
+.btn-download.disable{
+    background-color: gray;
+    color: lightgray;
+    border: none;
+    box-shadow: 0 0 3px gray;
+}
+
+.btn-download h2{
+    font-size: 20px;
+    margin: 0px 5px;
 }
