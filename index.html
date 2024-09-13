@@ -1,63 +1,430 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="pt-br">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Stefan Lucas</title>
-    <link rel="stylesheet" href="./public/config/estilos.css">
-    <link rel="stylesheet" href="./public/config/anim.css">
+    <link rel="stylesheet" href="public/config/estilos.css">
+    <link rel="stylesheet" href="public/config/anim.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-</head>
-
-<body>
-    <section id="home">
-        <div class="info" id="info">
-            <h3 id="nome-titulo">Stefan Lucas</h3>
-            <div id="descricao" class="desc">Especialista em Desenvolvimento de Games pela UNOPAR, Bacharel em Ciência da Computação pelo Centro Universitário Luterano de Palmas, Membro do Grupo de Estudos em Novas Tecnologias para Processos de Ensino e Aprendizagem GENTE do CEULP, Atuando
-                principalmente nos seguintes temas: Lógica de predicados como monitor da Disciplina, Desenvolvimento de jogos 2D e Plataforma Gamificada pelo PROICT como desenvolvedor. Atualmente Quality Assurance (QA) na CRP Tecnologia.</div>
-            <div class="imgs">
-                <img src="./public/imagens/icones/node.png" class="habil-icone">
-                <img src="./public/imagens/icones/js.png" class="habil-icone">
-                <img src="./public/imagens/icones/py.webp" class="habil-icone">
-                <img src="./public/imagens/icones/django.png" class="habil-icone">
-                <img src="./public/imagens/icones/flask.png" class="habil-icone">
-                <img src="./public/imagens/icones/angular.png" class="habil-icone">
-                <img src="./public/imagens/icones/csharp.svg" class="habil-icone">
-                <img src="./public/imagens/icones/css.png" class="habil-icone">
-                <img src="./public/imagens/icones/html.png" class="habil-icone">
-                <img src="./public/imagens/icones/react.png" class="habil-icone">
-                <img src="./public/imagens/icones/bootstrap.png" class="habil-icone">
-                <img src="./public/imagens/icones/ps.png" class="habil-icone">
-                <img src="./public/imagens/icones/corel.png" class="habil-icone">
-                <img src="./public/imagens/icones/aseprite.png" class="habil-icone">
-                <div class="links">
-                    <a href="https://instagram.com/stefan.luks" class="link">
-                        <i class="bi bi-instagram"></i>
-                    </a>
-                    <a href="https://github.com/stefanluks" class="link">
-                        <i class="bi bi-github"></i>
-                    </a>
-                    <a href="https://www.linkedin.com/in/stefan-lucas-599668224/" class="link">
-                        <i class="bi bi-linkedin"></i>
-                    </a>
-                    <a href="./public/arquivos/cv.pdf" class="link">
-                        <i class="bi bi-file-earmark-arrow-down-fill"></i>
-                    </a>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  </head>
+  <body class="bg bg-dark">
+    <div class="m-4 p-3">
+        <div class="text-light" style="font-size: 60px;">Stefan Lucas</div>
+        <div class="descricao fs-5">
+            <div class="text-light">Pós-graduado em Desenvolvimento de Games</div>
+            <div class="text-light">Bacharel em Ciência da Computação</div>
+        </div>
+        <div class="linha"></div>
+        <div class="w-50 d-flex align-items-center justify-content-around p-0 m-0">
+            <a href="https://instagram.com/stefan.luks" class="text-light fs-3 m-0 p-0">
+                <i class="bi bi-instagram"></i>
+            </a>
+            <a href="https://github.com/stefanluks" class="text-light fs-3 m-0 p-0">
+                <i class="bi bi-github"></i>
+            </a>
+            <a href="https://www.linkedin.com/in/stefan-lucas-599668224/" class="text-light fs-3 m-0 p-0">
+                <i class="bi bi-linkedin"></i>
+            </a>
+            <a href="./public/arquivos/cv.pdf" class="text-light fs-3 m-0 p-0">
+                <i class="bi bi-file-earmark-arrow-down-fill"></i>
+            </a>
+        </div>
+    </div>
+    <div class="m-4 p-3" id="habilidades">
+        <div class="fs-2 text-light">Habilidades <b id="link-mini-game" class="fs-6 text-info" style="cursor: pointer;">Mini game</b></div>
+        <img src="./public/imagens/icones/node.png" class="habil-icone">
+        <img src="./public/imagens/icones/js.png" class="habil-icone">
+        <img src="./public/imagens/icones/py.webp" class="habil-icone">
+        <img src="./public/imagens/icones/django.png" class="habil-icone">
+        <img src="./public/imagens/icones/flask.png" class="habil-icone">
+        <img src="./public/imagens/icones/angular.png" class="habil-icone">
+        <img src="./public/imagens/icones/csharp.svg" class="habil-icone">
+        <img src="./public/imagens/icones/css.png" class="habil-icone">
+        <img src="./public/imagens/icones/html.png" class="habil-icone">
+        <img src="./public/imagens/icones/react.png" class="habil-icone">
+        <img src="./public/imagens/icones/bootstrap.png" class="habil-icone">
+        <img src="./public/imagens/icones/ps.png" class="habil-icone">
+        <img src="./public/imagens/icones/corel.png" class="habil-icone">
+        <img src="./public/imagens/icones/aseprite.png" class="habil-icone">
+        <canvas id="jogo" width="400" height="400" hidden></canvas>
+    </div>
+    <div class="m-4 p-3">
+        <div class="fs-2 text-light">Projetos</div>
+        <div class="projetos w-100 d-flex align-items-center justify-content-around flex-wrap">
+            <div class="card m-2" style="width: 18rem;">
+                <img src="public/imagens/capas/op_api.png" class="" style="width: 100%; height: 150px; object-fit: cover;" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">Elias Expedições</h5>
+                    <p class="card-text">Projeto concluído como freelancer para Elias Expedições, produzindo todo o sistema de dados da empresa de turismo.</p>
+                    <a href="https://eliasexpedicoes.com.br" class="btn btn-primary">Acessar Site</a>
+                    <a href="https://github.com/stefanluks/EliasExpedicoes" class="btn btn-secondary">Github <i class="bi bi-github"></i></a>
+                </div>
+            </div>
+            <div class="card m-2" style="width: 18rem;">
+                <img src="public/imagens/capas/op_api.png" class="" style="width: 100%; height: 150px; object-fit: cover;" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">Api de One Piece</h5>
+                    <p class="card-text">Projeto de desenvolvimento de uma API REST com python e Django com os dados do maior anime.</p>
+                    <!-- <a href="#" class="btn btn-primary">Acessar Site</a> -->
+                    <a href="https://github.com/stefanluks/ApiOnePiece" class="w-100 btn btn-secondary">Github <i class="bi bi-github"></i></a>
+                </div>
+            </div>
+            <div class="card m-2" style="width: 18rem;">
+                <img src="public/imagens/capas/slgames.png" class="" style="width: 100%; height: 150px; object-fit: cover;" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">SL Games</h5>
+                    <p class="card-text">Sistema de controle de pontuação dos jogos criados por mim, registrando em um banco MySQL usando Sequelize e Node.Js.</p>
+                    <!-- <a href="#" class="btn btn-primary">Acessar Site</a> -->
+                    <a href="https://github.com/stefanluks/Api-Game-Ranking-Controller" class="w-100 btn btn-secondary">Github <i class="bi bi-github"></i></a>
+                </div>
+            </div>
+            <div class="card m-2" style="width: 18rem;">
+                <img src="public/imagens/arte/image.png" class="" style="width: 100%; height: 150px; object-fit: cover;" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">LogiKingdom</h5>
+                    <p class="card-text">Jogo 2d mobile que conta uma aventura em um mundo estranho com intuito de ensinar lógica proposicional de forma lúdica.</p>
+                    <!-- <a href="#" class="btn btn-primary">Acessar Site</a> -->
+                    <a href="https://github.com/stefanluks/" class="w-100 btn btn-secondary">Github <i class="bi bi-github"></i></a>
+                </div>
+            </div>
+            <div class="card m-2" style="width: 18rem;">
+                <img src="public/imagens/arte/sam2.png" class="" style="width: 100%; height: 150px; object-fit: cover;" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">Logic Girl</h5>
+                    <p class="card-text">Game mobile onde o jogador ajudará Samantha a se livrar de virus enquanto aprende lógica de programação.</p>
+                    <!-- <a href="#" class="btn btn-primary">Acessar Site</a> -->
+                    <a href="https://github.com/stefanluks/ApiOnePiece" class="w-100 btn btn-secondary">Github <i class="bi bi-github"></i></a>
                 </div>
             </div>
         </div>
-        <div class="projeto-arte" id="projeto-dir" game="LK">
-            <img src="./public/imagens/arte/imagelk.png" id="img-dir">
-        </div>
-        <div class="projeto-arte" id="projeto-esq" game="LG">
-            <img src="./public/imagens/arte/sam2.png" id="img-esq">
-        </div>
-    </section>
-    <a href="https://instagram.com/stefan.luks"></a>
-    <a href="https://www.linkedin.com/in/stefan-lucas-599668224/"></a>
-    <a href="https://www.linkedin.com/in/stefan-lucas-599668224/"></a>
-    <script src="./public/config/app.js"></script>
-</body>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script>
+        window.onload = () => {
+            Cards();
 
+            window.addEventListener("resize", Cards);
+            function Cards(){
+                document.querySelectorAll(".card").forEach(card => {
+                    if(window.innerWidth < 500){
+                        card.style = "width: 100%";
+                    }else{
+                        card.style = "width: 18rem";
+                    }
+                });
+            }
+        
+            //script do JOGO
+            const jogo = document.getElementById("jogo");
+            //função de clique no link do mini game das habilidades
+            const btnLink = document.getElementById("link-mini-game");
+            btnLink.addEventListener("click", () => {
+                jogo.className = "jogo-habilidades";
+                if(btnLink.textContent == "Fechar jogo!"){
+                    btnLink.textContent = "Mini game";
+                    jogo.hidden = true;
+                    telas.telaAtual = "menu";
+                    document.querySelectorAll(".habil-icone").forEach(img => {img.hidden = false; });
+                }else{
+                    jogo.hidden = false;
+                    document.querySelectorAll(".habil-icone").forEach(img => {img.hidden = true; });
+                    btnLink.textContent = "Fechar jogo!";
+                    jogo.focus();
+                }
+            });
+
+            const icones = {
+                src: [
+                    "./public/imagens/icones/node.png#",
+                    "./public/imagens/icones/js.png#",
+                    "./public/imagens/icones/py.webp#510",
+                    "./public/imagens/icones/django.png#",
+                    "./public/imagens/icones/flask.png#860",
+                    "./public/imagens/icones/angular.png#",
+                    "./public/imagens/icones/csharp.svg#",
+                    "./public/imagens/icones/css.png#510",
+                    "./public/imagens/icones/html.png#510",
+                    "./public/imagens/icones/react.png#2300",
+                    "./public/imagens/icones/bootstrap.png#510",
+                    "./public/imagens/icones/ps.png#1000",
+                    "./public/imagens/icones/corel.png#300",
+                    "./public/imagens/icones/aseprite.png#230",
+                ],
+                imagens: [],
+            }
+
+            let cont = 0;
+            
+            const ctx = jogo.getContext("2d");
+            const player = {
+                cor:"green",
+                pontos: 0,
+                x: jogo.width/2,
+                y: jogo.height - 40,
+                w: 20,
+                h: 20,
+                andando: false,
+                direcao: 0,
+                velocidade: 3,
+                disparar: false,
+                disparos: [],
+            }
+            const telas = {
+                disparo_inimigo: [],
+                telaAtual: "menu",
+                teclas_up:{
+                    32: () => {
+                        player.disparar = false;
+                    },
+                    65: () => {
+                        player.andando = false;
+                        player.direcao = 0;
+                    },
+                    37: () => {
+                        player.andando = false;
+                        player.direcao = 0;
+                    },
+                    68: () => {
+                        player.andando = false;
+                        player.direcao = 0;
+                    },
+                    39: () => {
+                        player.andando = false;
+                        player.direcao = 0;
+                    }
+                },
+                teclas:{
+                    32: () => {
+                        if(telas.telaAtual == "menu"){
+                            telas.telaAtual = "jogo";
+                            telas.disparo_inimigo = [];
+                            icones.imagens = [];
+                            icones.src.forEach((url, index) => {
+                                let image = new Image();
+                                let link = url.split("#");
+                                image.src = link[0];
+                                let dimension = 220;
+                                if(link[1] != "") dimension = parseInt(link[1]);
+                                icones.imagens.push({
+                                    img: image,
+                                    i: index,
+                                    d: dimension,
+                                    size: 20,
+                                    pos:{
+                                        x:20+(20*index)+(index*5),
+                                        y:40
+                                    }
+                                });
+                            })
+                            player.pontos = 0;
+                            player.disparos = [];
+                            cont = 0;
+                        }
+                        if(telas.telaAtual == "jogo") {
+                            player.disparar = true;
+                            player.disparos.push({
+                                x: player.x + 7,
+                                y: player.y - 10,
+                                w: 5,
+                                h: 10,
+                            })
+                        }
+                    },
+                    27: () => {
+                        telas.telaAtual = "menu";
+                    },
+                    65: () => {
+                        player.andando = true;
+                        player.direcao = -1;
+                    },
+                    37: () => {
+                        player.andando = true;
+                        player.direcao = -1;
+                    },
+                    68: () => {
+                        player.andando = true;
+                        player.direcao = 1;
+                    },
+                    39: () => {
+                        player.andando = true;
+                        player.direcao = 1;
+                    }
+                },
+                menu: () => {
+                    ctx.fillStyle = "lightblue";
+                    ctx.fillRect(0, 0, jogo.width, jogo.height);
+                    ctx.fillStyle = "white";
+                    ctx.font = "30px Calibri";
+                    ctx.fillText("Aperte Espaço", jogo.width/2-100, jogo.height/2)
+                },
+                jogo: () => {
+                    ctx.fillStyle = "black";
+                    ctx.fillRect(0, 0, jogo.width, jogo.height);
+                    ctx.fillStyle = "white";
+                    ctx.font = "20px Calibri bold";
+                    ctx.fillText("Pontos: "+player.pontos, 15, 30);
+                    icones.imagens.forEach((img) => {
+                        ctx.fillStyle = "white";
+                        ctx.fillRect(img.pos.x, img.pos.y, img.size, img.size);
+                        ctx.drawImage(img.img, 0, 0, img.d, img.d, img.pos.x, img.pos.y, img.size, img.size)
+                    });
+                    
+                    ctx.fillStyle = player.cor;
+                    ctx.fillRect(player.x, player.y, player.w, player.h);
+                    
+                    //Ataque do Inimigo
+                    if(icones.imagens.length > 0){
+                        if(cont < 250) cont++;
+                        else{
+                            cont = 0;
+                            let id = Math.floor(Math.random() * icones.imagens.length-1);
+                            let Enemy = icones.imagens[id];
+                            if(Enemy) telas.disparo_inimigo.push({
+                                x: Enemy.pos.x - 7,
+                                y: Enemy.pos.y + 20,
+                                w: 5,
+                                h: 10,
+                            });
+                        }
+                    }else{
+                        telas.telaAtual = "sucesso";
+                    }
+
+                    telas.disparo_inimigo.forEach((bala, index) => {
+                        ctx.fillStyle = "white";
+                        ctx.fillRect(bala.x, bala.y, bala.w, bala.h);
+                        bala.y += 5;
+                        if(bala.y > jogo.height + bala.h) telas.disparo_inimigo.splice(index, 1);
+                        if(ColidePlayer(bala)){
+                            telas.telaAtual = "GameOver";
+                        }
+                    })
+
+                    if(player.andando){
+                        if(player.direcao < 0 && player.x > 0 || player.direcao > 0 && player.x < jogo.width - player.w){
+                            player.x += player.direcao * player.velocidade;
+                        }
+                    }
+
+                    if(player.disparos.length > 0){
+                        player.disparos.forEach((tiro, index) => {
+                            ctx.fillStyle = "white";
+                            ctx.fillRect(tiro.x, tiro.y, tiro.w, tiro.h);
+                            tiro.y -= player.velocidade;
+                            if(tiro.y < 0 || ColideHabilidade(tiro)){
+                                player.disparos.splice(index,1);
+                            }
+                        })
+                    }
+                },
+                sucesso: () => {
+                    ctx.fillStyle = "lightgreen";
+                    ctx.fillRect(0, 0, jogo.width, jogo.height);
+
+                    ctx.fillStyle = "black";
+                    ctx.font = "30px Calibri bold";
+                    ctx.fillText("Parabéns!!", jogo.width/2-80, jogo.height/2);
+                    ctx.fillText("Pontuação total: "+player.pontos, jogo.width/2-100, jogo.height/2+25);
+                    ctx.font = "18px Calibri bold";
+                    ctx.fillText("Aperte ESC para voltar", 10, jogo.height-15);
+                },
+                GameOver: () => {
+                    ctx.fillStyle = "red";
+                    ctx.fillRect(0, 0, jogo.width, jogo.height);
+
+                    ctx.fillStyle = "white";
+                    ctx.font = "30px Calibri bold";
+                    ctx.fillText("Você perdeu!!", jogo.width/2-80, jogo.height/2);
+                    ctx.fillText("Pontuação total: "+player.pontos, jogo.width/2-100, jogo.height/2+25);
+                    ctx.font = "18px Calibri bold";
+                    ctx.fillText("Aperte ESC para voltar", 10, jogo.height-15);
+                }
+            }
+
+            Start();
+
+            function Start(){
+                icones.src.forEach((url, index) => {
+                    let image = new Image();
+                    let link = url.split("#");
+                    image.src = link[0];
+                    let dimension = 220;
+                    if(link[1] != "") dimension = parseInt(link[1]);
+                    icones.imagens.push({
+                        img: image,
+                        i: index,
+                        d: dimension,
+                        size: 20,
+                        pos:{
+                            x:20+(20*index)+(index*5),
+                            y:40
+                        }
+                    });
+                })
+                Update();
+            }
+
+            function Update(){
+                let tela = telas[telas.telaAtual];
+                if(tela) tela();
+                requestAnimationFrame(Update);
+            }
+
+            function ColideHabilidade(tiro){
+                icones.imagens.forEach((img, index) => {
+                    // Verifica se um quadrado está à direita do outro
+                    if (tiro.x + tiro.w < img.pos.x || img.pos.x + img.size < tiro.x) {
+                        return false;
+                    }
+                    // Verifica se um quadrado está abaixo do outro
+                    if (tiro.y + tiro.h < img.pos.y || img.pos.y + img.size < tiro.y) {
+                        return false;
+                    }
+                    // Se nenhuma das condições acima for verdadeira, os quadrados colidiram
+                    icones.imagens.splice(index, 1);
+                    player.pontos +=1;
+                    return true;
+                })
+            }
+
+            function ColidePlayer(tiro){
+                // Verifica se um quadrado está à direita do outro
+                if (tiro.x + tiro.w < player.x || player.x + player.w < tiro.x) {
+                    return false;
+                }
+                // Verifica se um quadrado está abaixo do outro
+                if (tiro.y + tiro.h < player.y || player.y + player.h < tiro.y) {
+                    return false;
+                }
+                // Se nenhuma das condições acima for verdadeira, os quadrados colidiram
+                
+                return true;
+            }
+
+            window.addEventListener("keydown", chave => {
+                let key = telas.teclas[chave.keyCode];
+                if(key) key();
+            });
+
+            window.addEventListener("keyup", chave => {
+                let key = telas.teclas_up[chave.keyCode];
+                if(key) key();
+            });
+
+            window.addEventListener("keypress", chave => {
+                let key = telas.teclas[chave.keyCode];
+                if(key) key();
+            });
+        }
+
+        window.addEventListener('keydown', function(e) {
+            if(e.keyCode == 32 && e.target == document.body) {
+                e.preventDefault();
+            }
+        });
+    </script>
+    
+</body>
 </html>

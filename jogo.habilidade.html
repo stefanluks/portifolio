@@ -1,0 +1,285 @@
+<canvas id="jogo" width="400" height="400"></canvas>
+<script>
+    
+    const icones = {
+        src: [
+            "./public/imagens/icones/node.png#",
+            "./public/imagens/icones/js.png#",
+            "./public/imagens/icones/py.webp#510",
+            "./public/imagens/icones/django.png#",
+            "./public/imagens/icones/flask.png#860",
+            "./public/imagens/icones/angular.png#",
+            "./public/imagens/icones/csharp.svg#",
+            "./public/imagens/icones/css.png#510",
+            "./public/imagens/icones/html.png#510",
+            "./public/imagens/icones/react.png#2300",
+            "./public/imagens/icones/bootstrap.png#510",
+            "./public/imagens/icones/ps.png#1000",
+            "./public/imagens/icones/corel.png#300",
+            "./public/imagens/icones/aseprite.png#230",
+        ],
+        imagens: [],
+    }
+    let cont = 0;
+    const jogo = document.getElementById("jogo");
+    const ctx = jogo.getContext("2d");
+    const player = {
+        cor:"green",
+        pontos: 0,
+        x: jogo.width/2,
+        y: jogo.height - 40,
+        w: 20,
+        h: 20,
+        andando: false,
+        direcao: 0,
+        velocidade: 3,
+        disparar: false,
+        disparos: [],
+    }
+    const telas = {
+        disparo_inimigo: [],
+        telaAtual: "menu",
+        teclas_up:{
+            32: () => {
+                player.disparar = false;
+            },
+            65: () => {
+                player.andando = false;
+                player.direcao = 0;
+            },
+            37: () => {
+                player.andando = false;
+                player.direcao = 0;
+            },
+            68: () => {
+                player.andando = false;
+                player.direcao = 0;
+            },
+            39: () => {
+                player.andando = false;
+                player.direcao = 0;
+            }
+        },
+        teclas:{
+            32: () => {
+                if(telas.telaAtual == "menu"){
+                    telas.telaAtual = "jogo";
+                    telas.disparo_inimigo = [];
+                    icones.imagens = [];
+                    icones.src.forEach((url, index) => {
+                        let image = new Image();
+                        let link = url.split("#");
+                        image.src = link[0];
+                        let dimension = 220;
+                        if(link[1] != "") dimension = parseInt(link[1]);
+                        icones.imagens.push({
+                            img: image,
+                            i: index,
+                            d: dimension,
+                            size: 20,
+                            pos:{
+                                x:20+(20*index)+(index*5),
+                                y:40
+                            }
+                        });
+                    })
+                    player.pontos = 0;
+                    player.disparos = [];
+                    cont = 0;
+                }
+                if(telas.telaAtual == "jogo") {
+                    player.disparar = true;
+                    player.disparos.push({
+                        x: player.x + 7,
+                        y: player.y - 10,
+                        w: 5,
+                        h: 10,
+                    })
+                }
+            },
+            27: () => {
+                telas.telaAtual = "menu";
+            },
+            65: () => {
+                player.andando = true;
+                player.direcao = -1;
+            },
+            37: () => {
+                player.andando = true;
+                player.direcao = -1;
+            },
+            68: () => {
+                player.andando = true;
+                player.direcao = 1;
+            },
+            39: () => {
+                player.andando = true;
+                player.direcao = 1;
+            }
+        },
+        menu: () => {
+            ctx.fillStyle = "lightblue";
+            ctx.fillRect(0, 0, jogo.width, jogo.height);
+            ctx.fillStyle = "white";
+            ctx.font = "30px Calibri";
+            ctx.fillText("Aperte Espaço", jogo.width/2-100, jogo.height/2)
+        },
+        jogo: () => {
+            ctx.fillStyle = "black";
+            ctx.fillRect(0, 0, jogo.width, jogo.height);
+            ctx.fillStyle = "white";
+            ctx.font = "20px Calibri bold";
+            ctx.fillText("Pontos: "+player.pontos, 15, 30);
+            icones.imagens.forEach((img) => {
+                ctx.fillStyle = "white";
+                ctx.fillRect(img.pos.x, img.pos.y, img.size, img.size);
+                ctx.drawImage(img.img, 0, 0, img.d, img.d, img.pos.x, img.pos.y, img.size, img.size)
+            });
+            
+            ctx.fillStyle = player.cor;
+            ctx.fillRect(player.x, player.y, player.w, player.h);
+            
+            //Ataque do Inimigo
+            if(icones.imagens.length > 0){
+                if(cont < 250) cont++;
+                else{
+                    cont = 0;
+                    let id = Math.floor(Math.random() * icones.imagens.length-1);
+                    let Enemy = icones.imagens[id];
+                    if(Enemy) telas.disparo_inimigo.push({
+                        x: Enemy.pos.x - 7,
+                        y: Enemy.pos.y + 20,
+                        w: 5,
+                        h: 10,
+                    });
+                }
+            }else{
+                telas.telaAtual = "sucesso";
+            }
+
+            telas.disparo_inimigo.forEach((bala, index) => {
+                ctx.fillStyle = "white";
+                ctx.fillRect(bala.x, bala.y, bala.w, bala.h);
+                bala.y += 5;
+                if(bala.y > jogo.height + bala.h) telas.disparo_inimigo.splice(index, 1);
+                if(ColidePlayer(bala)){
+                    telas.telaAtual = "GameOver";
+                }
+            })
+
+            if(player.andando){
+                if(player.direcao < 0 && player.x > 0 || player.direcao > 0 && player.x < jogo.width - player.w){
+                    player.x += player.direcao * player.velocidade;
+                }
+            }
+
+            if(player.disparos.length > 0){
+                player.disparos.forEach((tiro, index) => {
+                    ctx.fillStyle = "white";
+                    ctx.fillRect(tiro.x, tiro.y, tiro.w, tiro.h);
+                    tiro.y -= player.velocidade;
+                    if(tiro.y < 0 || ColideHabilidade(tiro)){
+                        player.disparos.splice(index,1);
+                    }
+                })
+            }
+        },
+        sucesso: () => {
+            ctx.fillStyle = "lightgreen";
+            ctx.fillRect(0, 0, jogo.width, jogo.height);
+
+            ctx.fillStyle = "black";
+            ctx.font = "30px Calibri bold";
+            ctx.fillText("Parabéns!!", jogo.width/2-80, jogo.height/2);
+            ctx.fillText("Pontuação total: "+player.pontos, jogo.width/2-100, jogo.height/2+25);
+            ctx.font = "18px Calibri bold";
+            ctx.fillText("Aperte ESC para voltar", 10, jogo.height-15);
+        },
+        GameOver: () => {
+            ctx.fillStyle = "red";
+            ctx.fillRect(0, 0, jogo.width, jogo.height);
+
+            ctx.fillStyle = "white";
+            ctx.font = "30px Calibri bold";
+            ctx.fillText("Você perdeu!!", jogo.width/2-80, jogo.height/2);
+            ctx.fillText("Pontuação total: "+player.pontos, jogo.width/2-100, jogo.height/2+25);
+            ctx.font = "18px Calibri bold";
+            ctx.fillText("Aperte ESC para voltar", 10, jogo.height-15);
+        }
+    }
+
+    Start();
+
+    function Start(){
+        icones.src.forEach((url, index) => {
+            let image = new Image();
+            let link = url.split("#");
+            image.src = link[0];
+            let dimension = 220;
+            if(link[1] != "") dimension = parseInt(link[1]);
+            icones.imagens.push({
+                img: image,
+                i: index,
+                d: dimension,
+                size: 20,
+                pos:{
+                    x:20+(20*index)+(index*5),
+                    y:40
+                }
+            });
+        })
+        Update();
+    }
+
+    function Update(){
+        let tela = telas[telas.telaAtual];
+        if(tela) tela();
+        requestAnimationFrame(Update);
+    }
+
+    function ColideHabilidade(tiro){
+        icones.imagens.forEach((img, index) => {
+            // Verifica se um quadrado está à direita do outro
+            if (tiro.x + tiro.w < img.pos.x || img.pos.x + img.size < tiro.x) {
+                return false;
+            }
+            // Verifica se um quadrado está abaixo do outro
+            if (tiro.y + tiro.h < img.pos.y || img.pos.y + img.size < tiro.y) {
+                return false;
+            }
+            // Se nenhuma das condições acima for verdadeira, os quadrados colidiram
+            icones.imagens.splice(index, 1);
+            player.pontos +=1;
+            return true;
+        })
+    }
+
+    function ColidePlayer(tiro){
+        // Verifica se um quadrado está à direita do outro
+        if (tiro.x + tiro.w < player.x || player.x + player.w < tiro.x) {
+            return false;
+        }
+        // Verifica se um quadrado está abaixo do outro
+        if (tiro.y + tiro.h < player.y || player.y + player.h < tiro.y) {
+            return false;
+        }
+        // Se nenhuma das condições acima for verdadeira, os quadrados colidiram
+        
+        return true;
+    }
+
+    window.addEventListener("keydown", chave => {
+        let key = telas.teclas[chave.keyCode];
+        if(key) key();
+    });
+
+    window.addEventListener("keyup", chave => {
+        let key = telas.teclas_up[chave.keyCode];
+        if(key) key();
+    });
+
+    window.addEventListener("keypress", chave => {
+        let key = telas.teclas[chave.keyCode];
+        if(key) key();
+    });
+</script>

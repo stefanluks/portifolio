@@ -91,3 +91,12 @@
         height: 350px;
     }
 }
+
+@keyframes open-mini-game {
+    0%{
+        height: 0px;
+    }
+    100%{
+        height: 400px;
+    }
+}
